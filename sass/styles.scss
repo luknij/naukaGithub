@@ -1,0 +1,301 @@
+body {
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+img {
+  max-width: 100%;
+}
+h1, h2, h3, h4, h5, h6{
+  padding-bottom: 20px;
+}
+h1 {
+  font-size: 2.4em;
+}
+h2 {
+  font-size: 1.8em;
+}
+h3 {
+  font-size: 1.4em;
+}
+p {
+  font-size: 1.3em;
+  line-height:normal;
+}
+@media #{$tablet}{
+  h1 {
+    font-size: 3.4em;
+  }
+  h2 {
+    font-size: 2.4em;
+  }
+  h3 {
+    font-size: 2em;
+  }
+  h4 {
+    font-size: 1.6em;
+  }
+  h5 {
+    font-size: 1em;
+  }
+}
+//////////////////////////////////
+.container {
+  @include wrapper;
+}
+#main-header {
+  @include main-header;
+}
+.navbar {
+  position: relative;
+  background: $main-color;
+    @media #{$tablet} {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }
+}
+
+//////////////////////////////////
+.logo-container {
+  display: flex;
+  height: 6em;
+}
+.nav-logo {
+  margin: auto 1.6em;
+  opacity: 0.9;
+  &:hover {
+    opacity: 1;
+  }
+}
+//////////////////////////////////
+#main-menu {
+  @include invisible;
+  @media #{$tablet} {
+    display: flex;
+    padding-right: 1em;
+  }
+  position: relative;
+}
+#main-menu > li {
+  text-align: center;
+  font-size: 2em;
+  &:hover {
+    > a {
+    color: $main-color;
+    background: $main-second-color;
+    }
+    @media #{$tablet} {
+      > ul {
+      @include block;
+      }
+    }
+  }
+  @media #{$tablet} {
+    font-size: 1.6em;
+  }
+}
+//btnPort
+.btnPort {
+  position: relative;
+}
+//btnArrow
+#main-menu > li a.btnArrow {
+  position: absolute;
+  top: 0;
+  right: 1em;
+  color: $main-second-color;
+  &:hover {
+    color: $main-color;
+  }
+  @media #{$tablet} {
+    display: none;
+  }
+}
+li.btnPort:hover i {
+  color: $main-color;
+}
+
+// btnFix added fontawesome
+#main-menu > li > a {
+  color: $main-second-color;
+  text-decoration: none;
+}
+
+#main-menu > li > a {
+  @include block;
+  padding: .54em 0;
+  @include btnText;
+  @media #{$tablet} {
+    padding: 1.4em .6em;
+  }
+}
+
+//////////////////////////////////
+#main-menu > li > ul {
+  @include invisible;
+  background: $main-color-darken;
+  @media #{$tablet}{
+    position: absolute;
+    top: 3.8em;
+    left: 0;
+    width: 7em;
+    background: $main-color;
+  }
+}
+#main-menu > li > ul > li {
+  text-align: center;
+  &:hover {
+    a {
+    color: $main-color;
+    background: $main-second-color;
+    }
+  }
+  @media #{$tablet} {
+    text-align: left;
+  }
+}
+#main-menu > li > ul > li > a{
+  @include block;
+  padding: .8em .4em;
+  font-size: .7em;
+  @include btnText;
+}
+//////////////////////////////////
+.toggle-menu a {
+  color: $main-second-color;
+}
+.toggle-menu {
+  position: absolute;
+  top: 1.12em;
+  right: 1.2em;
+  font-size: 1.4em;
+  @media #{$tablet} {
+    @include invisible;
+  }
+}
+//////////////////////////////////
+
+//////////////////////////////////
+// slider borderFix
+.bx-wrapper{
+  border:0 !important;
+}
+// slider btn clearFix
+.bx-wrapper .bx-controls-direction a {
+  z-index: 1 !important;
+}
+// slider img
+.bxslider {
+  .main-slide-1 {
+    background-image: url('images/slider/slajd-1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+  }
+  .main-slide-2 {
+    background-image: url('images/slider/slajd-2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+  }
+  .main-slide-3 {
+    background-image: url('images/slider/slajd-3.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+  }
+}
+
+// slider content
+.main-slider-content {
+  padding: 20% 2%;
+  color: $white-color;
+  position: relative;
+  z-index: 1;
+  h2 {
+    padding-bottom: 0;
+    line-height: 60px;
+    font-weight: 400;
+    @media #{$tablet}{
+      font-size: 48px;
+      line-heigjt:60px;
+    }
+  }
+  p {
+    font-size: 1.3em;
+    //line-height: $basic-line-height;
+    @media #{$tablet}{
+      font-size: 18px;
+    }
+  }
+  a {
+    position: relative;
+    @include basic-button($main-second-color-text, $main-second-color);
+    margin: 20px 0 0 0;
+    padding: 12px 30px;
+    //border: 1px solid $white-color;
+    border-radius: 0 100px 100px 100px;
+    &:hover{
+      @include basic-button($white-color, $main-color);
+       //border: 1px solid $main-second-color-text;
+    }
+  }
+}
+
+//////////////////////////////////
+// main text area slider
+.mainContent{
+  color: $white-color;
+  padding:40px 14px;
+}
+/*main uslugi*/
+#services {
+  @include clearFix;
+  margin-bottom: 80px;
+  color: $main-second-color-text;
+}
+#services header {
+  @include center-text;
+  margin-bottom: 60px;
+}
+#services .single-col i {
+  color: $main-second-color-darken;
+}
+#services .single-col {
+  @include center-text;
+  padding: 60px 1%;
+  margin: 0 !important;
+  text-align:jutify;
+  @media #{$tablet}{
+    @include column(4);
+  }
+}
+.servicesIcon {
+  display: block;
+  padding-bottom:40px;
+  @include center-text;
+}
+.categoryChoose a{
+  color: $main-second-color-text;
+  text-decoration: none;
+}
+.categoryChoose a:hover .single-col{
+  background: $main-color;
+}
+.categoryChoose a:hover{
+  color: $white-color;
+}
+.categoryChoose a:hover .servicesIcon i{
+  color: $white-color !important;
+}
+/*o mnie - about*/
+#about {
+  background-color: $main-color;
+}
+
+// portfolio carousel
+.carousel-item {
+  float: left;
+}
+
+
